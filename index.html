@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Sign Up</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div class="signup-container">
+      <form id="signupForm" novalidate>
+        <div class="company-header">
+          <img
+            class="company-logo"
+            src="assets/logos/company-logo.svg"
+            alt=""
+          />
+          <span class="company-name">Preview</span>
+        </div>
+        <h1>Create an account</h1>
+
+        <!-- Name Field -->
+        <div class="form-group">
+          <input
+            type="text"
+            id="name"
+            name="name"
+            class="input-field"
+            required
+            autocomplete="name"
+          />
+          <label for="name">Name</label>
+        </div>
+
+        <!-- Email Field -->
+        <div class="form-group">
+          <input
+            type="email"
+            id="email"
+            class="input-field"
+            name="email"
+            required
+            autocomplete="email"
+          />
+          <label for="email">Email</label>
+        </div>
+
+        <!-- Password Field -->
+        <div class="form-group">
+          <input
+            type="password"
+            id="password"
+            class="input-field"
+            name="password"
+            required
+            minlength="8"
+            autocomplete="new-password"
+          />
+          <label for="password">Password</label>
+        </div>
+
+        <!-- Primary Button -->
+        <button type="submit" id="signup" class="btn btn-primary">
+          Sign up
+        </button>
+
+        <!-- Or Divider -->
+        <div class="or-divider"><span>or</span></div>
+
+        <!-- Secondary Buttons -->
+        <div class="social-login-wrapper">
+          <button class="social-btn google" aria-label="Sign up with Google">
+            <img src="assets/icons/google.svg" alt="Google Logo" />
+            <span>Sign up with Google</span>
+          </button>
+          <button class="social-btn apple" aria-label="Sign up with Apple">
+            <img src="assets/icons/apple.svg" alt="Apple Logo" />
+            <span>Sign up with Apple</span>
+          </button>
+        </div>
+
+        <!-- Login Link -->
+        <p class="login-link">
+          Already have an account? <a href="../login-form/login.html">Log in</a>
+        </p>
+
+        <div class="terms-privacy-wrapper">
+          <a href="terms-of-use.html" class="link">Terms of Use</a>
+          <span class="divider">|</span>
+          <a href="privacy-policy.html" class="link">Privacy Policy</a>
+        </div>
+      </form>
+    </div>
+    <script src="script.js" defer></script>
+  </body>
+</html>
