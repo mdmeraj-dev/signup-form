@@ -96,7 +96,7 @@ h1 {
   color: #06f;
 }
 .form-group input:focus ~ label,
-.form-group input:valid ~ label {
+.form-group input.has-content ~ label {
   top: 0;
   font-size: 14px;
   background-color: #fff;

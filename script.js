@@ -5,6 +5,23 @@ document.addEventListener("DOMContentLoaded", () => {
   const emailInput = document.getElementById("email");
   const passwordInput = document.getElementById("password");
 
+  // Floating labels
+  const inputFields = document.querySelectorAll(".input-field");
+
+  inputFields.forEach((input) => {
+    if (input.value.trim() !== "") {
+      input.classList.add("has-content");
+    }
+
+    input.addEventListener("input", () => {
+      if (input.value.trim() !== "") {
+        input.classList.add("has-content");
+      } else {
+        input.classList.remove("has-content");
+      }
+    });
+  });
+
   const handleFormSubmit = (event) => {
     event.preventDefault();
 
@@ -22,9 +39,7 @@ document.addEventListener("DOMContentLoaded", () => {
     inputFields.forEach((input) => {
       input.classList.remove("has-content");
     });
-  
   };
 
   signupForm.addEventListener("submit", handleFormSubmit);
-
 });
