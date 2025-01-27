@@ -229,3 +229,57 @@ h1 {
   color: #333;
 }
 
+
+/* Mobile View: From 0px to 768px */
+@media (max-width: 768px) {
+  body {
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+  }
+  .signup-container {
+    width: 100%;
+    justify-content: flex-start;
+    box-shadow: none;
+    padding: 16px 32px;
+  }
+}
+
+/* Tablet View: From 769px to 1024px */
+@media (min-width: 769px) {
+  .signup-container {
+    width: 75%;
+    max-width: 400px;
+    padding: 20px 32px;
+  }
+
+  .company-header {
+    margin-bottom: 16px;
+  }
+  .company-logo {
+    width: 36px;
+    height: 36px;
+  }
+
+  .company-name {
+    font-size: 40px;
+  }
+}
+
+/* Desktop View: Minimum 1025px width */
+@media (min-width: 1025px) {
+  .signup-container {
+    width: 50%;
+    max-width: 425px;
+    padding: 32px 40px;
+  }
+  .company-logo {
+    width: 40px;
+    height: 40px;
+  }
+  .company-name {
+    font-size: 44px;
+  }
+}
+
+
