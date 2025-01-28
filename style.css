@@ -1,3 +1,6 @@
+/* Importing Google Font */
+@import url("https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap");
+
 /* General Reset and Global Font Styles */
 * {
   margin: 0;
@@ -14,7 +17,6 @@ body {
   align-items: center;
   min-height: 100vh;
 }
-
 /* Signup Container Styling */
 .signup-container {
   box-shadow: 0px 0px 8px rgba(0, 0, 0, 0.2);
@@ -103,6 +105,23 @@ h1 {
   padding: 0 4px;
 }
 
+/* Error Message Visibility and Input Error Styling */
+.error-message {
+  position: absolute;
+  bottom: -18px;
+  left: 12px;
+  color: #fc5454;
+  font-size: 12px;
+  display: none;
+}
+
+input.error ~ .error-message {
+  display: block;
+}
+
+input.error {
+  border-color: #fc5454;
+}
 
 .btn {
   padding: 12px 16px;
@@ -281,5 +300,3 @@ h1 {
     font-size: 44px;
   }
 }
-
-

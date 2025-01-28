@@ -30,6 +30,8 @@
             autocomplete="name"
           />
           <label for="name">Name</label>
+
+          <span id="nameError" class="error-message"></span>
         </div>
 
         <!-- Email Field -->
@@ -43,6 +45,8 @@
             autocomplete="email"
           />
           <label for="email">Email</label>
+
+          <span id="emailError" class="error-message"></span>
         </div>
 
         <!-- Password Field -->
@@ -57,8 +61,10 @@
             autocomplete="new-password"
           />
           <label for="password">Password</label>
-        </div>
 
+          <span id="passwordError" class="error-message"></span>
+        </div>
+     
         <!-- Primary Button -->
         <button type="submit" id="signup" class="btn btn-primary">
           Sign up
