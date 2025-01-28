@@ -33,6 +33,9 @@ document.addEventListener("DOMContentLoaded", () => {
       errorElement.style.display = "none";
       inputElement.classList.remove("error");
     }
+    if (inputElement === passwordInput) {
+      hideStrengthIndicator();
+    }
   };
 
   // Handle input events to dynamically update errors
@@ -108,19 +111,72 @@ document.addEventListener("DOMContentLoaded", () => {
     return true;
   };
 
-    // Toggle the password visibility
-    const togglePassword = document.getElementById("togglePassword");
-    const showIcon = document.getElementById("showIcon");
-    const hideIcon = document.getElementById("hideIcon");
-  
-    togglePassword.addEventListener("click", () => {
-      const isPassword = passwordInput.type === "password";
-      passwordInput.type = isPassword ? "text" : "password";
-      showIcon.style.display = isPassword ? "block" : "none";
-      hideIcon.style.display = isPassword ? "none" : "block";
-    });
+  // Toggle the password visibility
+  const togglePassword = document.getElementById("togglePassword");
+  const showIcon = document.getElementById("showIcon");
+  const hideIcon = document.getElementById("hideIcon");
 
-  
+  togglePassword.addEventListener("click", () => {
+    const isPassword = passwordInput.type === "password";
+    passwordInput.type = isPassword ? "text" : "password";
+    showIcon.style.display = isPassword ? "block" : "none";
+    hideIcon.style.display = isPassword ? "none" : "block";
+  });
+
+  // Toggle password strength
+  const strengthMeter = document.querySelector(".strength-meter");
+  const strengthLabel = document.querySelector(".strength-label");
+
+  const showStrengthIndicator = () => {
+    strengthMeter.style.display = "block";
+    strengthLabel.style.display = "flex";
+  };
+
+  const hideStrengthIndicator = () => {
+    strengthMeter.style.display = "none";
+    strengthLabel.style.display = "none";
+  };
+
+  const calculateStrength = (password) => {
+    let strength = 0;
+    if (password.length >= 8) strength++;
+    if (password.match(/((?=.*[a-z])|(?=.*[A-Z])|(?=.*[0-9]))/)) strength++;
+    if (password.match(/(?=.*[a-z])(?=.*[A-Z])/)) strength++;
+    if (password.match(/(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])/)) strength++;
+    if (password.match(/(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[^a-zA-Z0-9])/))
+      strength++;
+    return strength;
+  };
+
+  const updateStrengthIndicator = (strength) => {
+    const levels = [
+      { label: "Weak", color: "#ff0000", percent: 15 },
+      { label: "Fair", color: "#ffaf00", percent: 30 },
+      { label: "Good", color: "#ffaf00", percent: 45 },
+      { label: "Strong", color: "#54b435", percent: 60 },
+      { label: "Very Strong", color: "#228b22", percent: 75 },
+    ];
+
+    const { label, color, percent } =
+      levels[Math.min(strength - 1, levels.length - 1)];
+    strengthMeter.style.width = `${percent}%`;
+    strengthMeter.style.backgroundColor = color;
+
+    strengthLabel.textContent = label;
+    strengthLabel.style.color = color;
+
+    showStrengthIndicator();
+  };
+
+  passwordInput.addEventListener("input", () => {
+    const password = passwordInput.value.trim();
+    if (password) {
+      updateStrengthIndicator(calculateStrength(password));
+    } else {
+      hideStrengthIndicator();
+    }
+  });
+
   // Handle form submission
   const handleFormSubmit = (event) => {
     event.preventDefault();
@@ -138,6 +194,7 @@ document.addEventListener("DOMContentLoaded", () => {
       );
 
       signupForm.reset();
+      hideStrengthIndicator();
 
       inputFields.forEach((input) => {
         input.classList.remove("has-content");
