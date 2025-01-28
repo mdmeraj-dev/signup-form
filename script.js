@@ -108,6 +108,19 @@ document.addEventListener("DOMContentLoaded", () => {
     return true;
   };
 
+    // Toggle the password visibility
+    const togglePassword = document.getElementById("togglePassword");
+    const showIcon = document.getElementById("showIcon");
+    const hideIcon = document.getElementById("hideIcon");
+  
+    togglePassword.addEventListener("click", () => {
+      const isPassword = passwordInput.type === "password";
+      passwordInput.type = isPassword ? "text" : "password";
+      showIcon.style.display = isPassword ? "block" : "none";
+      hideIcon.style.display = isPassword ? "none" : "block";
+    });
+
+  
   // Handle form submission
   const handleFormSubmit = (event) => {
     event.preventDefault();
