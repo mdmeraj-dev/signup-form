@@ -17,14 +17,14 @@ A simple and responsive signup form built with HTML, CSS, and JavaScript. This p
 
 ## Preview
 
-You can view the live demo of the project here: [Live Preview](https://meraj-md.github.io/signup-form/)
+You can view the live demo of the project here: [Live Preview](https://mdmeraj-dev.github.io/signup-form/)
 
 ## Installation
 
 1. Clone the repository:
 
    ```bash
-   git clone https://github.com/meraj-md/signup-form.git
+   git clone https://github.com/mdmeraj-dev/signup-form.git
 
    ```
 
@@ -41,6 +41,6 @@ You can view the live demo of the project here: [Live Preview](https://meraj-md.
 For inquiries, please reach out:
 
 - **Email**: [mdmeraj.cse@gmail.com](mailto:mdmeraj.cse@gmail.com)
-- **GitHub**: [@meraj-md](https://github.com/meraj-md)
+- **GitHub**: [@mdmeraj-dev](https://github.com/mdmeraj-dev)
 
 ## Made with ❤️ by Md Meraj
